@@ -1,0 +1,1 @@
+import * as dotenv from 'dotenv'; dotenv.config({ path: '.env.local' }); import { db } from '../lib/db'; import { user } from '../db/schema'; async function main() { try { console.log(await db.select().from(user)); } catch (e) { console.error(e); } } main();

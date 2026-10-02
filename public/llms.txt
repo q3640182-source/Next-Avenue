@@ -1,0 +1,23 @@
+# Next Avenue - Real Estate Services Pakistan
+
+Next Avenue is a premier real estate agency and property marketplace based in Islamabad, Pakistan. 
+
+## Services Offered
+- **Selling Properties:** End-to-end service for property sellers including valuation, professional photography, digital marketing, and legal documentation.
+- **Buying Properties:** A curated marketplace of verified listings.
+- **Property Types:** We handle residential (houses, apartments), commercial properties, and office spaces.
+
+## Key Areas Covered
+- Islamabad and Rawalpindi
+- Specialized focus on premium sectors: F-7, F-8, D-12, Bahria Town.
+
+## Important Links
+- Home: https://nextavenue.com.pk
+- Buy a Property (Listings): https://nextavenue.com.pk/buy
+- Sell Your Property: https://nextavenue.com.pk/sell
+- Frequently Asked Questions: https://nextavenue.com.pk/faq
+- Blog / Market Insights: https://nextavenue.com.pk/blog
+
+## Contact Information
+- Support Email: support@nextavenue.com.pk (placeholder)
+- Operations: Managed entirely online through our platform.

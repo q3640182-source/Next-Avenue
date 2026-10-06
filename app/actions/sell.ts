@@ -11,7 +11,7 @@ const formSchema = z.object({
   ownerName: z.string().min(2),
   phone: z.string().min(10),
   email: z.string().email().optional().or(z.literal("")),
-  propertyType: z.enum(["house", "apartment", "commercial", "office"]),
+  propertyType: z.enum(["house", "apartment", "commercial", "office", "plot"]),
   sector: z.string().optional(),
   address: z.string().optional(),
   price: z.string().optional(),

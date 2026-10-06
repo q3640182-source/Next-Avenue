@@ -423,7 +423,7 @@ export default function SellPage() {
                             <DialogHeader>
                               <DialogTitle>Terms of Service – Property Submission</DialogTitle>
                             </DialogHeader>
-                            <div className="overflow-y-auto flex-1 pr-4 text-sm text-slate-600 space-y-3 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-slate-100 [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full">
+                            <div className="overflow-y-auto flex-1 p-6 text-sm text-slate-600 space-y-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-slate-100 [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full">
                               <p>By submitting this property through the Next Avenue website, the property owner/authorized representative confirms that the information provided is accurate and agrees to the following terms:</p>
                               
                               <p><strong>1. Property Submission & Services</strong><br/>The property may be submitted to Next Avenue for sale or rental, including residential houses, apartments, plots, commercial properties, offices, shops, land, and other real estate.</p>

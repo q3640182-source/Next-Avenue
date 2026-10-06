@@ -69,7 +69,7 @@ export function Hero() {
   const prevSlide = () => setCurrentSlide((p) => (p - 1 + HERO_IMAGES.length) % HERO_IMAGES.length);
 
   return (
-    <section className="relative flex min-h-[700px] w-full flex-col items-center justify-center overflow-hidden bg-neutral-900 sm:min-h-[800px] lg:min-h-[880px]">
+    <section id="hero-section" className="relative flex min-h-[700px] w-full flex-col items-center justify-center overflow-hidden bg-neutral-900 sm:min-h-[800px] lg:min-h-[880px]">
       {/* 2. Multi-Layered Background Architecture */}
       <div className="absolute inset-0 z-0">
         {HERO_IMAGES.map((src, index) => (

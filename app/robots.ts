@@ -15,6 +15,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin/", "/api/"],
       }
     ],
-    sitemap: "https://nextavenue.com.pk/sitemap.xml",
+    sitemap: "https://www.nextavenuepk.com/sitemap.xml",
   };
 }

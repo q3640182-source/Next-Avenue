@@ -3,7 +3,7 @@ import { db } from "@/lib/db";
 import { listings, blogPosts } from "@/db/schema";
 import { eq } from "drizzle-orm";
 
-const BASE_URL = "https://nextavenue.com.pk";
+const BASE_URL = "https://www.nextavenuepk.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch dynamic routes

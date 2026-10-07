@@ -274,7 +274,7 @@ export function Hero() {
             <Button type="button" className="h-14 rounded-full text-sm font-bold shadow-xl bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => router.push("/sell")}>
               Sell Your Property
             </Button>
-            <Button type="button" className="h-14 rounded-full text-sm font-bold shadow-xl bg-white text-slate-900 hover:bg-white/90" onClick={() => window.open("https://rentyourproperty.com", "_blank")}>
+            <Button type="button" className="h-14 rounded-full text-sm font-bold shadow-xl bg-white text-slate-900 hover:bg-white/90" onClick={() => window.open("https://www.rentyourproperty.pk/list-property", "_blank")}>
               Rent Your Property
             </Button>
           </div>

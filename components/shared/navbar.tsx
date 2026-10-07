@@ -100,7 +100,7 @@ export function Navbar() {
           {/* Desktop CTA — hidden below md */}
           <div className="hidden items-center gap-3 md:flex">
             <Button variant="outline" className={cn("border-2 font-bold", (isHome && !scrolled) ? "bg-transparent border-white/50 text-white hover:bg-white/10 hover:text-white" : "text-primary hover:text-primary")} asChild>
-              <a href="https://rentyourproperty.pk" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.rentyourproperty.pk/list-property" target="_blank" rel="noopener noreferrer">
                 Rent Property
               </a>
             </Button>
@@ -158,7 +158,7 @@ export function Navbar() {
             <div className="border-t p-4 flex flex-col gap-3">
               <SheetClose asChild>
                 <Button variant="outline" className="w-full border-2 text-primary" asChild>
-                  <a href="https://rentyourproperty.pk" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.rentyourproperty.pk/list-property" target="_blank" rel="noopener noreferrer">
                     Rent Your Property
                   </a>
                 </Button>

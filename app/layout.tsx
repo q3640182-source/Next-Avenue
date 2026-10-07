@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     description: "Sell your property fast and securely with Next Avenue.",
   },
   verification: {
-    google: "PLACEHOLDER_GOOGLE_SITE_VERIFICATION_ID",
+    google: "NKnn574oe-eMYWGGU45t4G5WPLS_u6p7kb5_mYvgO3A",
   },
 };
 

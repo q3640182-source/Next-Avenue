@@ -76,10 +76,10 @@ export default async function HomePage() {
       addressCountry: "PK"
     },
     sameAs: [
-      settings?.facebookUrl,
-      settings?.instagramUrl,
-      settings?.twitterUrl,
-      settings?.linkedinUrl,
+      settings?.facebook,
+      settings?.instagram,
+      settings?.twitter,
+      settings?.linkedin,
     ].filter(Boolean),
     description: "Next Avenue is Pakistan's premier property platform, specializing in buying, selling, and evaluating premium real estate in Islamabad and Rawalpindi."
   };

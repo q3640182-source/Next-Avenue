@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { db } from "@/lib/db";
-import { listings } from "@/db/schema";
+import { listings, siteSettings } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -60,9 +60,38 @@ export default async function HomePage() {
     .orderBy(desc(listings.createdAt))
     .limit(4);
 
+  const [settings] = await db.select().from(siteSettings).limit(1);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    name: "Next Avenue",
+    image: "https://www.nextavenuepk.com/logo.png",
+    url: "https://www.nextavenuepk.com",
+    telephone: settings?.phone || "+923001234567",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Islamabad",
+      addressRegion: "Islamabad Capital Territory",
+      addressCountry: "PK"
+    },
+    sameAs: [
+      settings?.facebookUrl,
+      settings?.instagramUrl,
+      settings?.twitterUrl,
+      settings?.linkedinUrl,
+    ].filter(Boolean),
+    description: "Next Avenue is Pakistan's premier property platform, specializing in buying, selling, and evaluating premium real estate in Islamabad and Rawalpindi."
+  };
+
   return (
-    <div>
-      <Hero />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div>
+        <Hero />
 
       {/* ── 2. Featured Listings ────────────────────────────────── */}
       <section className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
@@ -233,5 +262,6 @@ export default async function HomePage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

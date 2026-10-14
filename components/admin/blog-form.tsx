@@ -110,10 +110,11 @@ export function BlogForm({ initialData }: { initialData?: Partial<FormValues> })
                 name="slug"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-xs font-bold uppercase tracking-widest text-slate-500">Slug (Optional)</FormLabel>
+                    <FormLabel className="text-xs font-bold uppercase tracking-widest text-slate-500">URL Slug (Optional)</FormLabel>
                     <FormControl>
                       <Input placeholder="e.g. 5-tips-selling-fast" className="h-12 rounded-xl bg-slate-50 border-slate-200" {...field} />
                     </FormControl>
+                    <p className="text-[11px] text-slate-400">Leave blank to auto-generate from title. Only lowercase letters, numbers, and dashes (no spaces or commas).</p>
                     <FormMessage />
                   </FormItem>
                 )}

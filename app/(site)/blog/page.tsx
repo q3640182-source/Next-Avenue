@@ -10,6 +10,8 @@ export const metadata = {
   description: "Expert advice, market trends, and guides on selling your property in Pakistan.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function BlogIndexPage() {
   const posts = await db
     .select()

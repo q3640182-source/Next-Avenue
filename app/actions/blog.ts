@@ -5,6 +5,16 @@ import { headers } from "next/headers";
 import { db } from "@/lib/db";
 import { blogPosts } from "@/db/schema";
 import { eq } from "drizzle-orm";
+import { revalidatePath } from "next/cache";
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
 
 export async function saveBlogPost(data: any) {
   try {
@@ -16,11 +26,10 @@ export async function saveBlogPost(data: any) {
       return { success: false, error: "Unauthorized" };
     }
 
-    // Auto-generate slug if not provided
-    let slug = data.slug;
+    // Auto-generate or sanitize slug
+    let slug = data.slug ? slugify(data.slug) : slugify(data.title);
     if (!slug) {
-      slug = data.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
-      if (!data.id) slug += `-${Math.random().toString(36).substring(2, 6)}`;
+      slug = `post-${Math.random().toString(36).substring(2, 7)}`;
     }
 
     const payload = {
@@ -41,6 +50,9 @@ export async function saveBlogPost(data: any) {
       await db.insert(blogPosts).values(payload as any);
     }
 
+    revalidatePath("/blog");
+    revalidatePath(`/blog/${slug}`);
+
     return { success: true };
   } catch (error) {
     console.error("Save blog post error:", error);
@@ -59,6 +71,7 @@ export async function deleteBlogPost(id: number) {
     }
 
     await db.delete(blogPosts).where(eq(blogPosts.id, id));
+    revalidatePath("/blog");
     return { success: true };
   } catch (error) {
     console.error("Delete blog post error:", error);

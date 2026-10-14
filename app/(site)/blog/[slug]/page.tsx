@@ -1,6 +1,6 @@
 import { db } from "@/lib/db";
 import { blogPosts, listings } from "@/db/schema";
-import { eq, desc } from "drizzle-orm";
+import { eq, or } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import ReactMarkdown from "react-markdown";
@@ -11,16 +11,15 @@ import Link from "next/link";
 import { ArrowLeft, Calendar, User, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export const revalidate = 3600; // ISR revalidate every hour
-
-export async function generateStaticParams() {
-  const posts = await db.select({ slug: blogPosts.slug }).from(blogPosts).where(eq(blogPosts.published, true));
-  return posts.map((post) => ({ slug: post.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const [post] = await db.select().from(blogPosts).where(eq(blogPosts.slug, slug));
+  const decodedSlug = decodeURIComponent(slug);
+  const [post] = await db
+    .select()
+    .from(blogPosts)
+    .where(or(eq(blogPosts.slug, slug), eq(blogPosts.slug, decodedSlug)));
   
   if (!post) return { title: "Not Found" };
 
@@ -40,7 +39,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const [post] = await db.select().from(blogPosts).where(eq(blogPosts.slug, slug));
+  const decodedSlug = decodeURIComponent(slug);
+  const [post] = await db
+    .select()
+    .from(blogPosts)
+    .where(or(eq(blogPosts.slug, slug), eq(blogPosts.slug, decodedSlug)));
 
   if (!post || !post.published) {
     notFound();
